@@ -17,6 +17,8 @@ import com.mstfackgz2.dto.DtoStudent;
 import com.mstfackgz2.dto.DtoStudentIU;
 import com.mstfackgz2.services.IStudentService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping(path = "/api/student")
@@ -28,7 +30,7 @@ public class StudentControllerImpl implements IStudentController {
 	
 	@PostMapping(path = "/save")
 	@Override
-	public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+	public DtoStudent saveStudent(@RequestBody @Valid DtoStudentIU dtoStudentIU) {
 
 		return studentService.saveStudent(dtoStudentIU);
 	}
